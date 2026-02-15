@@ -1,0 +1,84 @@
+{
+  "name": "seven-titles",
+  "displayName": "Seven Titles",
+  "version": "0.1.0",
+  "description": "An extension that displays Seven character on YouTube videos using the captions.",
+  "author": "BfoCrazy",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "plasmo": "0.90.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@types/chrome": "0.0.258",
+    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "prettier": "3.2.4",
+    "typescript": "5.3.3"
+  },
+  "manifest": {
+
+    "host_permissions": [
+      "https://*.youtube.com/*"
+    ],
+    "permissions": [
+      "tabs",
+      "storage",
+      "scripting",
+      "tabCapture",
+      "webRequest"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://*.youtube.com/*"
+        ],
+        "js": [
+          "~/content.js",
+          "~/fire.js"
+        ],
+        "run_at": "document_idle"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "matches": [
+        "https://*.youtube.com/*"
+      ]
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "page.js",
+          "assets/sound.mp3",
+          "assets/image.png",
+          "assets/img/Foundation.png",
+          "assets/img/Paradigm.png",
+          "assets/img/Scientist.png",
+          "assets/img/Visitor.png",
+          "assets/img/Order.png",
+          "assets/img/Origin.png",
+          "assets/img/Imagined.png",
+          "assets/sfx/Foundation.mp3",
+          "assets/sfx/Foundation2.mp3",
+          "assets/sfx/Paradigm.mp3",
+          "assets/sfx/Scientist.mp3",
+          "assets/sfx/Visitor.mp3",
+          "assets/sfx/Order.mp3",
+          "assets/sfx/Origin.mp3",
+          "assets/sfx/Imagined.mp3"
+        ],
+        "matches": [
+          "https://*.youtube.com/*"
+        ]
+      }
+    ]
+  }
+}
