@@ -1,7 +1,7 @@
 # SevenTitles
 Uses the *YouTube timedtext API* and slight *DOM reading* to save `auto-generated` captions (en).  <br> Displays the toggled member(s) corresponding image and sound effect whenever/if the captions say their name.
 ##### ⓘ Uses Plasmo extension base
-## Small Warning
+## ⚠️ Small Warning ⚠️
 **You may see subtitles turn themselves on and flicker when you open a new video, this is expected behaviour as the extension has to make YouTube fetch the caption data to intercept it. *This feature will be made toggleable in the future.***
 
 # Installation
