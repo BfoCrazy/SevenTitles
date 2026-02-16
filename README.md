@@ -19,3 +19,4 @@ Grab the latest release from [here](https://github.com/BfoCrazy/SevenTitles/rele
 
 <br><img width="510" height="276" alt="done" src="https://github.com/user-attachments/assets/d38ff87b-e9d7-4b41-b73c-706bc57731a3" />
 # There you are! Enjoy!
+ Subtitle fetch code and other partial snippets were made with the help of my friend who didn't want to be credited, but here it is anyway :evil:
