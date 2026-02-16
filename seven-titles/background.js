@@ -56,3 +56,16 @@ chrome.runtime.onMessage.addListener((msg) => {
     })
   }
 })
+
+chrome.storage.onChanged.addListener(async (changes, area) => {
+  if (area !== "local") return;
+
+  const all = await chrome.storage.local.get(null);
+
+
+  const keys = Object.keys(all).filter(k => k !== "toggles");
+
+  if (keys.length > 15) { //clean over 15 captions except toggles
+    await chrome.storage.local.remove(keys);
+  }
+});
