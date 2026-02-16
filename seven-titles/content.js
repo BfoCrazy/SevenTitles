@@ -4,6 +4,33 @@ export const config = {
 
 let currentVideoId = null
 let latestCaptions = null
+let toggles = [];
+let featureEnabled = false;
+
+async function loadToggles() {
+  const result = await chrome.storage.local.get("toggles");
+
+  if (Array.isArray(result.toggles)) {
+    toggles = result.toggles;
+    featureEnabled = toggles.some(v => v);
+  } else {
+    featureEnabled = false;
+  }
+
+  console.log("Feature enabled?", featureEnabled);
+}
+
+loadToggles();
+
+async function runForce() {
+  const { toggles } = await chrome.storage.local.get("toggles");
+
+  if (!Array.isArray(toggles) || !toggles.some(v => v)) {
+    return;
+  }
+
+  await forceLoadCaptions();
+}
 
 
 function getVideoId() {
@@ -57,7 +84,7 @@ function getSubtitle(videoId) { //partial credits Alpine
 }
 
 
-function flickerCaptions() {
+function flickerCaptions() { //credits Alpine
   const btn = document.querySelector(".ytp-subtitles-button")
   if (!btn) return
 
@@ -157,7 +184,7 @@ async function initCaptions() {
 
 
   setTimeout(() => {
-    forceLoadCaptions()
+    runForce()
   }, 1500)
 
 }

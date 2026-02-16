@@ -2,6 +2,9 @@ export const config = {
   matches: ["https://www.youtube.com/watch*"]
 }
 
+
+
+
 chrome.webRequest.onCompleted.addListener(  // partial credits Alpine
   async (details) => {
     const url = details.url;
