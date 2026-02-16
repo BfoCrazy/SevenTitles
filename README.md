@@ -1,3 +1,5 @@
+💢 Only works on videos with ENG auto-captions! 💢
+
 # SevenTitles
 Uses the *YouTube timedtext API* and slight *DOM reading* to save `auto-generated` captions (en).  <br> Displays the toggled member(s) corresponding image and sound effect whenever/if the captions say their name.
 ##### ⓘ Uses Plasmo extension base
