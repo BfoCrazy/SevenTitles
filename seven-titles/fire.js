@@ -19,7 +19,7 @@ const WORDS = [
 ]
 
 
-function updateToggles() {
+function updateToggles() { // credits Alpine
   chrome.storage.local.get("toggles", (result) => {
     const toggles = result.toggles || []
 
@@ -39,14 +39,14 @@ function updateToggles() {
 }
 
 
-chrome.storage.onChanged.addListener((changes, area) => {
+chrome.storage.onChanged.addListener((changes, area) => { // credits Alpine
   if (area !== "local") return
   if (!changes.toggles) return
   updateToggles()
 })
 
 
-function buildTriggers(events) {
+function buildTriggers(events) { //partial credits Alpine
   if (!Array.isArray(events)) return
   latestEvents = events
 

@@ -12,7 +12,7 @@ function getVideoId() {
 }
 
 
-function saveSubtitle(videoId, data) {
+function saveSubtitle(videoId, data) { //partial credits Alpine
   const key = videoId
 
 
@@ -48,7 +48,7 @@ function saveSubtitle(videoId, data) {
 }
 
 
-function getSubtitle(videoId) {
+function getSubtitle(videoId) { //partial credits Alpine
   return new Promise((resolve) => {
     chrome.storage.local.get(videoId, (result) => {
       resolve(result[videoId] || null)
