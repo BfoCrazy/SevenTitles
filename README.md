@@ -1,3 +1,5 @@
+###### Firefox Addon-Store link soon
+
 💢 Only works on videos with ENG auto-captions! 💢
 
 # SevenTitles
