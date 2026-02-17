@@ -160,6 +160,7 @@ async function forceLoadCaptions() {
 
 
 
+
 async function initCaptions() {
   const videoId = getVideoId()
   if (!videoId) return
@@ -188,6 +189,8 @@ async function initCaptions() {
   }, 1500)
 
 }
+
+
 
 
 chrome.runtime.onMessage.addListener((msg) => {
@@ -233,10 +236,24 @@ chrome.runtime.onMessage.addListener((msg) => {
   }
 })
 
+function waitAd() {
+  const interval = setInterval(() => {
+    const adPlaying = document.querySelector(".html5-video-player.ad-showing")
 
-initCaptions()
+    if (adPlaying) {
+    } else {
+      clearInterval(interval)
+      initCaptions()
+    }
+  }, 500)
+}
+
+waitAd()
+
+
+
 
 
 document.addEventListener("yt-navigate-finish", () => {
-  setTimeout(initCaptions, 800)
+  setTimeout(waitAd, 800)
 })

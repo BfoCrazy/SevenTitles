@@ -1,0 +1,11 @@
+{
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "seventitles@bfo.com",
+      "data_collection_permissions": {
+        "required": [],
+        "optional": []
+      }
+    }
+  }
+}
