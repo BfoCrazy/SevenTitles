@@ -45,7 +45,7 @@ Grab the latest release from [here](https://github.com/BfoCrazy/SevenTitles/rele
 <br><img width="266" height="87" alt="image" src="https://github.com/user-attachments/assets/be69223d-08e4-4534-8183-960fcfd79f39" />
 
 
-<br><img width="838" height="441" alt="image" src="https://github.com/user-attachments/assets/ddaa6581-a02d-4898-b921-3bed6a5f2133" />
+<br><img width="835" height="436" alt="image" src="https://github.com/user-attachments/assets/98fd4cd5-164f-4d37-89f2-816cbc188199" />
 <br>If you get any warnings, you can dismiss them, the extension will work normally.
 <br>Keep in mind, the extension will have to be re-setup every time you relaunch Firefox if you install it using this method.
 
