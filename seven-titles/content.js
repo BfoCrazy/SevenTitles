@@ -7,6 +7,7 @@ let latestCaptions = null
 let toggles = [];
 let featureEnabled = false;
 
+
 async function loadToggles() {
   const result = await chrome.storage.local.get("toggles");
 
@@ -17,7 +18,7 @@ async function loadToggles() {
     featureEnabled = false;
   }
 
-  console.log("Feature enabled?", featureEnabled);
+  console.log("feature?", featureEnabled);
 }
 
 loadToggles();
@@ -82,6 +83,7 @@ function getSubtitle(videoId) { //partial credits Alpine
     })
   })
 }
+
 
 
 function flickerCaptions() { //credits Alpine
@@ -157,7 +159,13 @@ async function forceLoadCaptions() {
   })
 }
 
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.type === "initUpdated") {
 
+     waitAd(),
+     currentVideoId = null
+  }
+})
 
 
 
@@ -186,6 +194,7 @@ async function initCaptions() {
 
   setTimeout(() => {
     runForce()
+
   }, 1500)
 
 }
@@ -237,6 +246,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 })
 
 function waitAd() {
+
   const interval = setInterval(() => {
     const adPlaying = document.querySelector(".html5-video-player.ad-showing")
 
@@ -244,6 +254,7 @@ function waitAd() {
     } else {
       clearInterval(interval)
       initCaptions()
+
     }
   }, 500)
 }

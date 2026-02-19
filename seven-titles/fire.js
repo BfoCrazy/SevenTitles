@@ -16,6 +16,7 @@ const WORDS = [
   { word: "origin", image: chrome.runtime.getURL("assets/img/Origin.png"), sound: chrome.runtime.getURL("assets/sfx/Origin.mp3"), enabled: false },
   { word: "imagined", image: chrome.runtime.getURL("assets/img/Imagined.png"), sound: chrome.runtime.getURL("assets/sfx/Imagined.mp3"), enabled: false },
   { word: "order", image: chrome.runtime.getURL("assets/img/Order.png"), sound: chrome.runtime.getURL("assets/sfx/Order.mp3"), enabled: false },
+  { word: "nothing", image: chrome.runtime.getURL("assets/img/Nothing.gif"), sound: chrome.runtime.getURL("assets/sfx/Nothing.mp3"), enabled: false },
 ]
 
 
@@ -43,6 +44,10 @@ chrome.storage.onChanged.addListener((changes, area) => { // credits Alpine
   if (area !== "local") return
   if (!changes.toggles) return
   updateToggles()
+
+  chrome.runtime.sendMessage({
+    type: "initUpdated",
+  })
 })
 
 

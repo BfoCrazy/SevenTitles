@@ -50,6 +50,17 @@ chrome.runtime.onMessage.addListener((msg) => {
 })
 
 chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.type === "initUpdated") {
+
+    chrome.tabs.query({}, (tabs) => {
+      tabs.forEach(tab => {
+        chrome.tabs.sendMessage(tab.id, msg)
+      })
+    })
+  }
+})
+
+chrome.runtime.onMessage.addListener((msg) => {
   if (msg.type === "SUBTITLES_SAVED") {
 
     chrome.tabs.query({}, (tabs) => {
@@ -64,11 +75,17 @@ chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== "local") return;
 
   const all = await chrome.storage.local.get(null);
+  const keysminT = Object.keys(all).filter(k => k !== "toggles");
+  const keys = await chrome.storage.local.get();
+  const keysDated = Object.entries(keys)
+    .filter(([_, item]) => item && typeof item.savedAt === "number")
+    .map(([key, item]) => ({ key, savedAt: item.savedAt }));
 
+  const oldest = keysDated
+    .sort((a, b) => a.savedAt - b.savedAt)[0].key;
 
-  const keys = Object.keys(all).filter(k => k !== "toggles");
+  if (keysminT.length > 15) { //clean over 15 captions except toggles
 
-  if (keys.length > 15) { //clean over 15 captions except toggles
-    await chrome.storage.local.remove(keys);
+    await chrome.storage.local.remove(oldest);
   }
 });
