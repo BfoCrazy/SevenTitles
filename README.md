@@ -8,7 +8,7 @@ Uses the *YouTube timedtext API* and slight *DOM reading* to save `auto-generate
 ## ⚠️ Small Warning ⚠️
 **You may see subtitles turn themselves on and flicker when you open a new video, this is expected behaviour as the extension has to make YouTube fetch the caption data to intercept it.**
 
-# Installation
+# 💾 Installation 💾
 <details>
 <summary>Chrome</summary>
 
@@ -52,14 +52,16 @@ Grab the latest release from [here](https://github.com/BfoCrazy/SevenTitles/rele
 
 </details>
 
-# Modification
+# ⚙️ Modification ⚙️
 
 ### This part is for those who don't feel the need to download the source code and build the extension with an IDE, and can be done using just Notepad.
+
+###### <br> Not removing the original credits in the pop-up would be appreciated.
 
 <details>
 <summary>Changing existing characters</summary>
 
- <br>Prepare your character image (.gif or .png), sound (mp3), and detection word.
+<br>Prepare your character image (.gif or .png), sound (mp3), and detection word.
 <br>Place the sound file in assets/sfx, and the image in assets/image:
 <br><img width="341" height="80" alt="image" src="https://github.com/user-attachments/assets/8fbe565b-d016-4a5d-8fad-fedd5732a10b" />
 <br><br>Go to manifest.json, add the paths to your image and sound under "web_accessible_resources".
