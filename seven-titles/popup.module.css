@@ -83,8 +83,16 @@
 
 .leftPanel {
   width: 160px;
+  height: 210px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  scrollbar-width: none; /*fiefox*/
+}
+
+
+.leftPanel::-webkit-scrollbar { /*chrome*/
+  display: none;
 }
 
 .rightPanel {
@@ -104,6 +112,18 @@
   flex: 1;
   text-align: left;
   align-items: left;
+}
+
+.overlayText {
+  position: absolute;
+  top: 218px;
+  left: 17px;
+
+  z-index: 999;
+  pointer-events: none;
+
+  font-size: 12px;
+  opacity: 0.8;
 }
 
 
