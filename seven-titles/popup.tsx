@@ -10,8 +10,7 @@ const toggleList = [
   "Paradigm",
   "Origin",
   "Imagined",
-  "Order",
-  "Nothing to see here"
+  "Order"
 ]
 
 
@@ -51,9 +50,6 @@ export default function Popup() {
 
 return (
   <div className={styles.container}>
-    <div className={styles.overlayText}>
-        <sub>Made by BfoCrazy ♡</sub>
-      </div>
     <div className={styles.leftPanel}>
       <div className={styles.grid}>
         {toggleList.map((label, index) => (
@@ -67,6 +63,7 @@ return (
             {label}
           </button>
         ))}
+        <sub>Made by BfoCrazy ♡</sub>
       </div>
     </div>
     <div className={styles.rightPanel}>
