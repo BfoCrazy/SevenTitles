@@ -1,5 +1,3 @@
-###### Firefox Addon-Store link soon
-
 💢 Only works on videos with ENG auto-captions! 💢
 
 # SevenTitles
@@ -9,6 +7,8 @@ Uses the *YouTube timedtext API* and slight *DOM reading* to save `auto-generate
 **You may see subtitles turn themselves on and flicker when you open a new video, this is expected behaviour as the extension has to make YouTube fetch the caption data to intercept it.**
 
 # 💾 Installation 💾
+###### Firefox Add-On Store: https://addons.mozilla.org/en-US/firefox/addon/seven-titles/
+
 <details>
 <summary>Chrome</summary>
 
