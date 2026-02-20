@@ -1,7 +1,7 @@
 {
   "name": "seven-titles",
   "displayName": "Seven Titles",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An extension that displays Seven characters on YouTube videos using the captions.",
   "author": "BfoCrazy",
   "scripts": {
@@ -61,7 +61,7 @@
         "resources": [
           "page.js",
           "assets/sound.mp3",
-          "assets/image.png",
+          "assets/soundON.png",
           "assets/img/Foundation.png",
           "assets/img/Paradigm.png",
           "assets/img/Scientist.png",

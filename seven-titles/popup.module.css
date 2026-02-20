@@ -184,9 +184,9 @@ margin: 0px;
 
 
 .imagFouter {
-  position: center;
-  top: 50px;
-  left: 200px;
+  position: absolute;
+  top: 60px;
+  left: 190px;
   width: 100px;
   height: auto;
   z-index: -1;
@@ -224,4 +224,65 @@ margin: 0px;
 
 .desc:hover ~ h2 .subtitle {
   opacity: 0;
+}
+
+.desc:hover ~ .slider .soundIc {
+  opacity: 0;
+}
+
+
+.sliderCon {
+  position: absolute;
+  top: 150px;
+  left: 120px;
+  rotate: 270deg;
+  z-index: 999;
+  transition: transform 0.8s ease, opacity 0.3s ease;
+
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 20%;
+  height: 7px;
+  border-radius: 1px;
+  background: #8f8f8f;
+  background: linear-gradient(90deg, rgba(143, 143, 143, 1) 0%, rgba(66, 66, 66, 1) 100%, rgba(148, 148, 148, 1) 94%);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 6px;
+  height: 25px;
+  border-radius: 10%;
+  background: #ff0000;
+  background: radial-gradient(circle, rgba(255, 0, 0, 1) 57%, rgba(107, 0, 0, 1) 100%, rgba(148, 148, 148, 1) 91%);
+  filter: drop-shadow(5px 5px 12px #ff0000);
+  cursor: pointer;
+
+}
+
+.slider::-moz-range-thumb {
+  width: 6px;
+  height: 25px;
+  border-radius: 10%;
+  background: #ff0000;
+  background: radial-gradient(circle, rgba(255, 0, 0, 1) 57%, rgba(107, 0, 0, 1) 100%, rgba(148, 148, 148, 1) 91%);
+  filter: drop-shadow(5px 5px 12px #ff0000);
+  cursor: pointer;
+}
+
+.soundIc {
+  position: absolute;
+  top: 165px;
+  left: 175px;
+  z-index: 999;
+  opacity: 55%;
+  transition: transform 0.8s ease, opacity 0.3s ease;
+  filter: drop-shadow(0px 5px 12px #ff0000);
 }

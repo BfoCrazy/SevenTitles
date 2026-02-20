@@ -6,7 +6,7 @@ let triggers = []
 let triggerCooldowns = {}
 let videoListenerAttached = false
 let latestEvents = null
-
+let sliderVolume = 100;
 
 const WORDS = [
   { word: "foundation", image: chrome.runtime.getURL("assets/img/Foundation.png"), sound: chrome.runtime.getURL("assets/sfx/Foundation2.mp3"), enabled: false },
@@ -19,6 +19,11 @@ const WORDS = [
   { word: "nothing", image: chrome.runtime.getURL("assets/img/Nothing.gif"), sound: chrome.runtime.getURL("assets/sfx/Nothing.mp3"), enabled: false },
 ]
 
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.type === "SET_SLIDER_VOLUME") {
+    sliderVolume = message.volume;
+  }
+});
 
 function updateToggles() { // credits Alpine
   chrome.storage.local.get("toggles", (result) => {
@@ -169,6 +174,7 @@ function showImage(src) {
 
 function playSound(src) {
   const audio = new Audio(src)
+  audio.volume = sliderVolume / 100;
   audio.play()
 }
 
