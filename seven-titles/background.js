@@ -71,6 +71,12 @@ chrome.runtime.onMessage.addListener((msg) => {
   }
 })
 
+chrome.tabs.onActivated.addListener((activeInfo) => {
+  chrome.tabs.sendMessage(activeInfo.tabId, {
+    type: "tabswitch"
+  })
+})
+
 chrome.storage.onChanged.addListener(async (changes, area) => {
   if (area !== "local") return;
 

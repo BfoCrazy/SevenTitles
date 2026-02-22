@@ -6,7 +6,12 @@ let triggers = []
 let triggerCooldowns = {}
 let videoListenerAttached = false
 let latestEvents = null
-let sliderVolume = 100;
+let fullVolume = 1;
+let curAudio = null;
+
+chrome.storage.local.get("sliderVolume", (result) => {
+  fullVolume = (result.sliderVolume ?? 100) / 100
+})
 
 const WORDS = [
   { word: "foundation", image: chrome.runtime.getURL("assets/img/Foundation.png"), sound: chrome.runtime.getURL("assets/sfx/Foundation2.mp3"), enabled: false },
@@ -21,9 +26,14 @@ const WORDS = [
 
 chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "SET_SLIDER_VOLUME") {
-    sliderVolume = message.volume;
+    //console.log(message.volume)
+    fullVolume = Number(message.volume) / 100
+
+    if (curAudio) {
+      curAudio.volume = fullVolume
+    }
   }
-});
+})
 
 function updateToggles() { // credits Alpine
   chrome.storage.local.get("toggles", (result) => {
@@ -173,9 +183,11 @@ function showImage(src) {
 
 
 function playSound(src) {
-  const audio = new Audio(src)
-  audio.volume = sliderVolume / 100;
-  audio.play()
+
+   curAudio = new Audio(src)
+
+  curAudio.volume = fullVolume
+  curAudio.play()
 }
 
 
@@ -226,6 +238,14 @@ document.addEventListener("yt-navigate-finish", () => {
   triggerCooldowns = {}
   videoListenerAttached = false
   loadFromStorage()
+})
+
+chrome.runtime.onMessage.addListener((message) => {
+  if (message.type === "tabswitch") {
+    chrome.storage.local.get("sliderVolume", (result) => {
+        fullVolume = (result.sliderVolume ?? 100) / 100
+      })
+  }
 })
 
 
