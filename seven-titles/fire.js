@@ -242,6 +242,9 @@ document.addEventListener("yt-navigate-finish", () => {
 
 chrome.runtime.onMessage.addListener((message) => {
   if (message.type === "tabswitch") {
+    chrome.runtime.sendMessage({
+          type: "initUpdated",
+        })
     chrome.storage.local.get("sliderVolume", (result) => {
         fullVolume = (result.sliderVolume ?? 100) / 100
       })
